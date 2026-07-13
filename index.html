@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>❤️ Heart Disease Prediction</h1>
+
+    <form action="/predict" method="POST">
+
+        <input type="number" name="HighBP" placeholder="High BP (0 or 1)" required>
+
+        <input type="number" name="HighChol" placeholder="High Cholesterol (0 or 1)" required>
+
+        <input type="number" name="CholCheck" placeholder="Cholesterol Check (0 or 1)" required>
+
+        <input type="number" step="0.1" name="BMI" placeholder="BMI" required>
+
+        <input type="number" name="Smoker" placeholder="Smoker (0 or 1)" required>
+
+        <input type="number" name="Stroke" placeholder="Stroke (0 or 1)" required>
+
+        <input type="number" name="Diabetes" placeholder="Diabetes" required>
+
+        <input type="number" name="PhysActivity" placeholder="Physical Activity" required>
+
+        <input type="number" name="Fruits" placeholder="Fruits" required>
+
+        <input type="number" name="Veggies" placeholder="Vegetables" required>
+
+        <input type="number" name="HvyAlcoholConsump" placeholder="Heavy Alcohol" required>
+
+        <input type="number" name="AnyHealthcare" placeholder="Any Healthcare" required>
+
+        <input type="number" name="NoDocbcCost" placeholder="No Doctor Cost" required>
+
+        <input type="number" name="GenHlth" placeholder="General Health" required>
+
+        <input type="number" name="MentHlth" placeholder="Mental Health Days" required>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
